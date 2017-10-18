@@ -42,7 +42,12 @@
           <artifactId>spring-jdbc</artifactId>
           <version>4.3.9.RELEASE</version>
       </dependency>
-
+        <!-- tx -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+          <version>4.3.5.RELEASE</version>
+      </dependency>
       <!--  mysql -->
       <dependency>
           <groupId>mysql</groupId>

@@ -3,43 +3,36 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:websocket="http://www.springframework.org/schema/websocket"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	    http://www.springframework.org/schema/beans/spring-beans.xsd
 	    http://www.springframework.org/schema/context
 	    http://www.springframework.org/schema/context/spring-context.xsd
-	    http://www.springframework.org/schema/aop
-	    http://www.springframework.org/schema/aop/spring-aop.xsd
-	    http://www.springframework.org/schema/mvc
-	    http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+	    http://mybatis.org/schema/mybatis-spring
+	    http://mybatis.org/schema/mybatis-spring.xsd
+	    http://www.springframework.org/schema/tx
+	    http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-
-    <!-- 扫描注解 -->
+    <!--mybatis扫描mapper包中的所有接口当做mapper-->
+    <mybatis:scan base-package="com.song.dao"/>
+    <!-- 扫描注解  不扫描controller层-->
     <context:component-scan base-package="com.song">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
     <context:property-override file-encoding="utf-8" location="classpath:jdbc.properties"/>
     <!-- 数据源 dataSource-->
-
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"/>
 
-    <!-- JdbcTemplate -->
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" p:dataSource-ref="dataSource"/>
+    <!--SqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:configLocation="classpath:mybatis-config.xml"/>
 
     <!--  事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+          p:dataSource-ref="dataSource"/>
+    <!--基于注解的事务开启-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
-
-    <!-- 启用注解 -->
-    <mvc:annotation-driven/>
-
-    <!--  web 通信 -->
-    <!-- 将myHandler 映射到 路径 -->
-    <websocket:handlers>
-        <websocket:mapping path="/hello" handler="myHandler"/>
-    </websocket:handlers>
-    <!-- 声明一个websocket对象 -->
-    <bean id="myHandler" class="com.song.controller.WebScoket"/>
 </beans>
