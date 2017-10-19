@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <title>后台管理</title>
+</head>
+<style rel="stylesheet" type="text/css">
+    div{
+        margin-top:20px;
+
+    }
+    div.main{
+        position: relative;
+        border: 10px outset burlywood;
+        width: 650px;
+        text-align: center;
+        margin: 200px auto;
+    }
+    #btn{
+        position: relative;
+    }
+    form{
+        position: relative;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+</style>
+<body>
+<div class="main">
+    <form id="ff" action="/goods/uploadGood" method="post" enctype="multipart/form-data" >
+        <div class="lb">
+            <label>商品名称</label>
+            <input name="goodName"  style="width:200px" >
+        </div>
+        <div>
+            <label>商品图片</label>
+            <input id="" type="text" name="goodsPhotoName" style="width:150px">
+            <input id="fb" type="file" name="photoFile" style="width:80px">
+        </div>
+        <div>
+            <label>商品价格</label>
+            <input type="text" id="nn" name="goodPrice" style="width:200px">
+        </div>
+        <div>
+            <label>商品描述</label>
+            <input class="text" name="goodDesc" data-options="iconCls:'icon-search'" style="width:200px">
+        </div>
+        <div>
+            <label>商品类别</label>
+            <!--<select id="cc" style="width:200px">
+                <option>ds</option>
+                <option>ds</option>
+                <option>ds</option>
+                <option>ds</option>
+            </select>-->
+        </div>
+        <div>
+            <input id="reset" href="#" _value="reset" type="reset"  style="width: 50px">
+            <input id="sub" href="#" _value = "submit"type="submit" data-options="" style="width: 50px">
+        </div>
+    </form>
+</div>
+</body>
+</html>
