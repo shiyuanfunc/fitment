@@ -10,7 +10,7 @@
 	    http://www.springframework.org/schema/context/spring-context.xsd
 	    http://www.springframework.org/schema/mvc
 	    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-        <!-- 扫描注解 只扫描controller层 -->.
+    <!-- 扫描注解 只扫描controller层 -->
     <context:component-scan base-package="com.song" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
@@ -38,7 +38,7 @@
         </property>
     </bean>
 
-    <!-- 解决IE浏览器下载 -->
+
     <bean id="mappingJackson2HttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
@@ -48,23 +48,23 @@
             </list>
         </property>
     </bean>
+
+
     <!--resource 方式不能处理404 静态页面  404.jsp可以用Resource -->
     <mvc:default-servlet-handler/>
     <!--<mvc:resources mapping="/resources/**" location="/" cache-period="3000000"/>-->
 
-    <!-- 文件上传解析器 -->
+    <!-- 文件上传 解析器 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-            p:defaultEncoding="utf-8" p:maxUploadSize="99999999999"/>
-    <!-- 配置异常处理 -->
-    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+          p:defaultEncoding="utf-8" p:maxUploadSize="99999999999"/>
+
+
+   <!-- <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="defaultErrorView" value="error" />
         <property name="exceptionMappings">
             <props>
                 <prop key="java.lang.Exception">error</prop>
             </props>
         </property>
-    </bean>
-
-    <!--  配置beanName解析器 导出表格 -->
-    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="10"/>
+    </bean>-->
 </beans>
