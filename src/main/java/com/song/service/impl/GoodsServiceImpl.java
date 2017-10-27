@@ -27,4 +27,10 @@ public class GoodsServiceImpl implements GoodsService {
         List<Map<String, Object>> maps = goodsDao.queryGoods();
         return maps;
     }
+
+    public void test() throws Exception{
+        String str = "dadsda";
+        char[] chars ={'男','女'};
+
+    }
 }
