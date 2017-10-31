@@ -37,6 +37,22 @@ CREATE TABLE `goods` (
 
 insert  into `goods`(`good_id`,`good_name`,`good_introduce`,`good_desc`,`good_price`,`good_discount`,`good_img_path`,`good_ercode_path`,`good_update`) values (1,'冰箱','好用的冰箱','真的是好用的冰箱',1900,0,NULL,NULL,NULL),(2,'电动车','实用的电车','超级实用的电车',1200,0,NULL,NULL,NULL);
 
+/*Table structure for table `t_user` */
+
+DROP TABLE IF EXISTS `t_user`;
+
+CREATE TABLE `t_user` (
+  `id` int(11) NOT NULL auto_increment COMMENT '主键',
+  `userName` varchar(30) NOT NULL COMMENT '用户账户',
+  `passWord` varchar(50) NOT NULL COMMENT '用户密码',
+  `status` int(11) default NULL COMMENT '用户状态',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_user` */
+
+insert  into `t_user`(`id`,`userName`,`passWord`,`status`) values (1,'admin','admin',1);
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
