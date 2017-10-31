@@ -107,6 +107,13 @@
 <script type="text/javascript" src="/public/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
+
+	function getContextPath(){
+		var pathName = document.location.pathname;
+		var index = pathName.substr(1).indexOf("/");
+		var result = pathName.substr(0,index+1);
+		return result;
+	}
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',
 		radioClass: 'iradio-blue',
