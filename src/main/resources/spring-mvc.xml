@@ -35,6 +35,7 @@
         <property name="templateResolver" ref="templateResolver" />
     </bean>
 
+
     <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="templateEngine"/>
         <property name="order" value="1"/>
