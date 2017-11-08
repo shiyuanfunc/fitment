@@ -21,16 +21,14 @@
         <property name="suffix" value=".html"/>
     </bean>-->
 
-
     <!--  使用themeleaf 模板解析 -->
     <bean id="templateResolver"
           class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
         <property name="prefix" value="/thymeleaf/"/>
         <property name="suffix" value=".html"/>
         <property name="templateMode" value="HTML5"/>
-        <!-- 缓存--><property name="cacheable" value="false"/>
+        <property name="cacheable" value="false"/><!-- 缓存-->
     </bean>
-
     <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
         <property name="templateResolver" ref="templateResolver" />
     </bean>
