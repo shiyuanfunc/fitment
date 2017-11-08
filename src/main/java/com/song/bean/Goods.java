@@ -1,5 +1,6 @@
 package com.song.bean;
 
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -103,4 +104,6 @@ public class Goods {
                 ", good_update=" + good_update +
                 '}';
     }
+
+
 }
