@@ -140,8 +140,7 @@
           <artifactId>javax.servlet.jsp-api</artifactId>
           <version>2.3.1</version>
       </dependency>
-
-        <!--  themeleaf  -->
+        <!--  themeleaf 整合 -->
       <dependency>
           <groupId>org.thymeleaf</groupId>
           <artifactId>thymeleaf</artifactId>
